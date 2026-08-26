@@ -1,0 +1,17 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  registry.npmjs.org search (total 0), pypi.org/pypi/resynergi/json (404),
+  rubygems.org/api/v1/gems/resynergi.json (404), crates.io/api/v1/crates?q=resynergi (0),
+  api.github.com/orgs/resynergi (200, public_repos 0),
+  api.github.com/search/repositories?q=resynergi (2, both third-party) — searched 2026-08-26
+packages: []
+package_count: 0
+note: >-
+  No first-party client libraries exist on any public registry. npm search returns 0 results,
+  PyPI and RubyGems 404, crates.io returns an empty set, and Maven Central / NuGet / pkg.go.dev
+  have nothing under the name. A GitHub organization github.com/Resynergi exists (created
+  2023-11-22) but publishes zero public repositories. The two GitHub repositories matching
+  "resynergi" (Jords-Co/resynergi, digitalindustrial/resynergi-cali) belong to third-party
+  web agencies, not to the company. Resynergi sells industrial pyrolysis modules, not
+  software, so there is nothing for an SDK to wrap. No `SDKs` pointer is emitted.

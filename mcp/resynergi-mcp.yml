@@ -1,0 +1,62 @@
+generated: '2026-08-26'
+method: probed
+source: >-
+  https://resynergi.com/wp-json/ (200), https://resynergi.com/wp-json/mcp (200),
+  POST https://resynergi.com/wp-json/mcp/mcp-oauth-server (401),
+  https://resynergi.com/.well-known/oauth-protected-resource (200) — probed 2026-08-26
+status: platform-default
+name: WordPress MCP adapter on resynergi.com
+description: >-
+  Resynergi publishes no MCP server of its own. Its marketing site runs on WordPress.com
+  (the /wp-json/ index exposes the wpcomsh/v1, jetpack/v4, elementor/v1 and wp-abilities/v1
+  namespaces), and that platform ships an MCP adapter which is live at
+  https://resynergi.com/wp-json/mcp/mcp-oauth-server. The endpoint answers a JSON-RPC
+  tools/list with HTTP 401 {"code":"mcp_unauthorized"}, and RFC 9728 protected-resource
+  metadata names it as the protected resource with scope "mcp". The abilities behind it are
+  WordPress content-management abilities (wp-abilities/v1, also 401 anonymously) — posts,
+  pages, media, site settings — not Resynergi's plastics-pyrolysis business.
+
+deployment:
+  mode: remote
+  endpoint: https://resynergi.com/wp-json/mcp/mcp-oauth-server
+  install: null
+  package: null
+  auth: oauth
+  verified: probed
+
+servers:
+- name: mcp-oauth-server
+  endpoint: https://resynergi.com/wp-json/mcp/mcp-oauth-server
+  methods: [POST, GET, DELETE]
+  tools_list_status: 401
+  tools_list_body: '{"code":"mcp_unauthorized","message":"MCP authentication required.","data":{"status":401}}'
+- name: mcp-adapter-default-server
+  endpoint: https://resynergi.com/wp-json/mcp/mcp-adapter-default-server
+  methods: [POST, GET, DELETE]
+  tools_list_status: 401
+  tools_list_body: '{"code":"rest_forbidden","message":"Sorry, you are not allowed to do that.","data":{"status":401}}'
+
+authorization:
+  authorization_server: https://resynergi.com
+  metadata: /.well-known/oauth-authorization-server
+  protected_resource_metadata: /.well-known/oauth-protected-resource
+  grant_types: [authorization_code, refresh_token]
+  code_challenge_methods: [S256]
+  scopes: [mcp]
+  dynamic_client_registration: client_id_metadata_document_supported
+
+tools: []
+tools_note: >-
+  Not enumerable. tools/list is OAuth-gated (401) on both servers, and the WordPress
+  Abilities API index (/wp-json/wp-abilities/v1/abilities) is likewise 401 anonymously.
+  Nothing is derived or guessed here; an authenticated WordPress session would be required
+  to read the real tool schemas.
+
+pointer_omitted: true
+pointer_omitted_reason: >-
+  No `type: MCPServer` pointer is wired into apis.yml. The endpoint is real and live, but it
+  is the WordPress.com/Jetpack platform default present on every site on that host plan — it
+  was not built or shipped by Resynergi and exposes none of Resynergi's business. Scoring it
+  as a Resynergi agent surface would credit the company with an MCP server it never shipped
+  and would return an industrial pyrolysis-equipment maker in searches for MCP-enabled API
+  providers. Recorded here as an honest observation instead.

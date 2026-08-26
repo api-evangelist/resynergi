@@ -1,0 +1,50 @@
+generated: '2026-08-26'
+method: probed
+source: live HTTPS probes of https://resynergi.com/.well-known/* on 2026-08-26
+note: >-
+  resynergi.com is a WordPress.com-hosted marketing site (wpcomsh/v1, jetpack/v4 and
+  elementor namespaces are present in the /wp-json/ index). Two /.well-known/ documents
+  return real JSON — an RFC 8414 OAuth 2.0 authorization server metadata document and an
+  RFC 9728 OAuth 2.0 protected resource metadata document — but BOTH are emitted by the
+  WordPress/Jetpack MCP adapter that the hosting platform enables, not by anything
+  Resynergi authored. They protect the WordPress content-management MCP endpoint, not a
+  Resynergi product API. No security.txt, no api-catalog, no openid-configuration and no
+  ai-plugin.json are served, so no WellKnown / SecurityTxt / APICatalog pointer is emitted
+  in apis.yml — see mcp/resynergi-mcp.yml for the same reasoning applied to the MCP surface.
+hosts:
+- host: resynergi.com
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: resynergi-oauth-authorization-server.json
+    content_type: application/json
+    note: >-
+      RFC 8414. issuer https://resynergi.com, authorization_endpoint /oauth/authorize,
+      token_endpoint /oauth/token, PKCE S256, scopes_supported [mcp]. Platform-provided by
+      the WordPress MCP adapter.
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: resynergi-oauth-protected-resource.json
+    content_type: application/json
+    note: >-
+      RFC 9728. resource https://resynergi.com/wp-json/mcp/mcp-oauth-server,
+      authorization_servers [https://resynergi.com], scopes_supported [mcp].
+      Platform-provided by the WordPress MCP adapter.
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null

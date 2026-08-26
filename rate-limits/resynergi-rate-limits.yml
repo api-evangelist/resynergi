@@ -1,0 +1,11 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  https://resynergi.com/ and site sitemap (8 pages, no developer section) — searched 2026-08-26
+limit_count: 0
+rate_limits: []
+note: >-
+  Resynergi documents no API and therefore no rate limits. The only HTTP surfaces on the
+  domain are the WordPress REST API index (/wp-json/) and the platform MCP adapter, whose
+  limits are set by the WordPress.com host, not published by Resynergi. No headers were
+  observed because there is no documented API surface to call. An honest zero.

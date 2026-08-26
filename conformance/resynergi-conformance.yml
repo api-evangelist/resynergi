@@ -1,0 +1,73 @@
+generated: '2026-08-26'
+method: probed
+source: >-
+  https://resynergi.com/.well-known/oauth-authorization-server (200),
+  https://resynergi.com/.well-known/oauth-protected-resource (200),
+  https://resynergi.com/wp-json/ (200), https://resynergi.com/wp-json/mcp (200),
+  site pages under https://resynergi.com/ — probed 2026-08-26
+scope_note: >-
+  Every conformance recorded below belongs to the WordPress.com hosting platform that serves
+  resynergi.com, not to a Resynergi-authored API. Resynergi publishes no API contract of its
+  own. Recorded so the observation is auditable, not to credit the company with a standards
+  posture it did not build.
+standards:
+- id: oauth2
+  conforms: true
+  owner: platform
+  evidence: >-
+    RFC 6749 authorization-code flow advertised at /.well-known/oauth-authorization-server:
+    authorization_endpoint https://resynergi.com/oauth/authorize, token_endpoint
+    https://resynergi.com/oauth/token, revocation_endpoint https://resynergi.com/oauth/revoke,
+    grant_types [authorization_code, refresh_token].
+- id: rfc8414
+  name: OAuth 2.0 Authorization Server Metadata
+  conforms: true
+  owner: platform
+  evidence: 200 JSON document at /.well-known/oauth-authorization-server with issuer https://resynergi.com.
+- id: rfc9728
+  name: OAuth 2.0 Protected Resource Metadata
+  conforms: true
+  owner: platform
+  evidence: >-
+    200 JSON document at /.well-known/oauth-protected-resource naming resource
+    https://resynergi.com/wp-json/mcp/mcp-oauth-server, bearer_methods_supported [header],
+    scopes_supported [mcp].
+- id: rfc7636
+  name: PKCE
+  conforms: true
+  owner: platform
+  evidence: code_challenge_methods_supported ["S256"] in the authorization server metadata.
+- id: mcp
+  name: Model Context Protocol
+  conforms: partial
+  owner: platform
+  evidence: >-
+    JSON-RPC MCP endpoint live at /wp-json/mcp/mcp-oauth-server; tools/list returns 401
+    mcp_unauthorized, so protocol version and tool schemas could not be observed anonymously.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404.
+- id: rfc9116
+  name: security.txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404.
+- id: rfc9457
+  name: Problem Details for HTTP APIs
+  conforms: false
+  evidence: >-
+    No published API. WordPress REST errors use the WordPress {code,message,data.status}
+    envelope, not application/problem+json.
+- id: rfc8594
+  name: Sunset header / deprecation policy
+  conforms: false
+  evidence: No versioning or deprecation policy is published on resynergi.com.
+domain_standards: []
+domain_standards_note: >-
+  Advanced/chemical recycling has certification schemes (ISCC PLUS, mass-balance chain of
+  custody) but no machine-readable API domain standard, and Resynergi's contract surface is
+  empty, so there is nothing to declare. Reward-only dimension left empty rather than invented.
+compliance_certifications: []
+compliance_note: >-
+  No trust center, no SOC 2 / ISO 27001 / PCI / HIPAA / FedRAMP claim and no compliance page
+  was found (probe-security-programs.py returned vdp=none trust=none). No `Compliance`
+  pointer is emitted.

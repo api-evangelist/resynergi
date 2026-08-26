@@ -1,17 +1,36 @@
 aid: resynergi
 name: Resynergi
-description: 'Resynergi is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Resynergi is an advanced plastic recycling technology company that builds modular
+  Continuous Microwave Assisted Pyrolysis (CMAP) systems, marketed as AMP Modules, which
+  convert hard-to-recycle waste plastics (HDPE, LDPE, polypropylene and polystyrene) into
+  circular pyrolysis oil (PyOil) and other petrochemical feedstocks. Each 440 sq ft module
+  is designed to process roughly 5 tons of plastic waste per day and produce about 1,000
+  gallons of PyOil per day, and the company claims a conversion roughly twenty times faster
+  than conventional pyrolysis with a large reduction in CO2-equivalent emissions. Founded in
+  2015 by Jason Tanne and Brian Bauer around microwave pyrolysis research from the University
+  of Minnesota, Resynergi commercializes its modules in partnership with Lummus Technology,
+  which sells the AMP Modules, and also operates plants near the source of waste under a
+  partner model. This is an industrial process-equipment business; it is not a software
+  vendor and publishes no developer program, API, SDK or machine-readable API contract.
 url: https://raw.githubusercontent.com/api-evangelist/resynergi/refs/heads/main/apis.yml
+image: https://resynergi.com/wp-content/uploads/2026/04/cropped-resynergi-colors-logo-ball-192x192.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-26'
 modified: '2026-08-26'
 tags:
 - Company
+- Advanced Recycling
+- Plastics
+- Pyrolysis
+- Circular Economy
+- Sustainability
+- Waste Management
+- Energy
+- Industrial Equipment
+- Climate Tech
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +38,58 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/resynergi-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://resynergi.com/
+- type: About
+  url: https://resynergi.com/about-us/
+- type: Blog
+  url: https://resynergi.com/news/
+- type: BlogRSS
+  url: https://resynergi.com/feed/
+- type: Support
+  url: https://resynergi.com/contact-us/
+- type: FAQ
+  url: https://resynergi.com/faqs/
+- type: LLMsTxt
+  url: llms/resynergi-llms.txt
+- type: Packages
+  url: packages/resynergi-packages.yml
+- type: Plans
+  url: plans/resynergi-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/resynergi-rate-limits.yml
+- type: Conformance
+  url: conformance/resynergi-conformance.yml
+x-enrichment:
+  date: '2026-08-26'
+  status: minimal
+  artifacts_added: 10
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Resynergi sells physical Continuous Microwave Assisted Pyrolysis modules through Lummus
+    Technology, and resynergi.com is an eight-page WordPress marketing site with no developer
+    section at all — the only machine-readable surfaces on the domain are WordPress.com
+    platform defaults (the /wp-json/ REST index and an OAuth-gated MCP adapter at
+    /wp-json/mcp/mcp-oauth-server), while every OpenAPI, GraphQL, llms.txt and agent-card
+    path returns 404 and api./docs./developer.resynergi.com do not resolve.
+  evidence:
+  - url: https://resynergi.com/openapi.json
+    status: 404
+  - url: https://resynergi.com/graphql
+    status: 404
+  - url: https://resynergi.com/llms.txt
+    status: 404
+  - url: https://resynergi.com/.well-known/agent-card.json
+    status: 404
+  - url: https://api.resynergi.com/
+    status: 0
+  - url: https://resynergi.com/wp-json/
+    status: 200
+  - url: https://resynergi.com/wp-json/mcp/mcp-oauth-server
+    status: 401
+  checked: '2026-08-26'
