@@ -64,5 +64,95 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Resynergi is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Resynergi is an advanced plastic recycling technology company that builds modular Continuous Microwave Assisted Pyrolysis (CMAP) systems, marketed as AMP Modules, which convert hard-to-recycle waste plastics (HDPE, LDPE, polypropylene and polystyrene) into circular pyrolysis oil (PyOil) and other petrochemical feedstocks. Each 440 sq ft module is designed to process roughly 5 tons of plastic waste per day and produce about 1,000 gallons of PyOil per day, and the company claims a conversion roughly twenty times faster than conventional pyrolysis with a large reduction in CO2-equivalent emissions. Founded in 2015 by Jason Tanne and Brian Bauer around microwave pyrolysis research from the University of Minnesota, Resynergi commercializes its modules in partnership with Lummus Technology, which sells the AMP Modules, and also operates plants near the source of waste under a partner model. This is an industrial process-equipment business; it is not a software vendor and publishes no developer program, API, SDK or machine-readable API contract.
+
+**Areas:** Company · Advanced Recycling · Plastics · Pyrolysis · Circular Economy · Sustainability · Waste Management · Energy · Industrial Equipment · Climate Tech
+
+## Resynergi on APIs.io
+
+Everything profiled for Resynergi is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/resynergi/](https://apis.io/providers/resynergi/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Resynergi Domain Security](https://apis.io/security/resynergi/resynergi-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Resynergi Plans Pricing](https://apis.io/plans/resynergi/resynergi-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Resynergi Rate Limits](https://apis.io/rate-limits/resynergi/resynergi-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://resynergi.com/)
+- [Support](https://resynergi.com/contact-us/)
+- [Blog](https://resynergi.com/news/)
+
+## API Evangelist rating
+
+**Kin Score 9.5** — minimal · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 58.3 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 0.0 |
+
+**Agent readiness 19.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 13.9** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/resynergi/](https://apis.io/providers/resynergi/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Resynergi: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/resynergi/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
